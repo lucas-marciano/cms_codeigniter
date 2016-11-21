@@ -52,15 +52,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Home';
 $route['sobre'] = "Home/Sobre";
 $route['servicos'] = "Servicos";
-//$route['servicos'] = "Institucional/Servicos";
+$route['projetos'] = "Projetos";
+$route['projetos/(:num)'] = "Projetos/projetos/$1";
 $route['contatos'] = "Contatos/index";
 $route['trabalhe-conosco'] = "Contatos/TrabalheConosco";
-//$route['login'] = "User/Login";
+
+$route['login'] = "Admin/Login";
 //$route['logout'] = "User/Logout";
 //$route['user'] = "User/Index";
 //$route['posts'] = "Posts/Posts";
 //$route['alterar-senha'] = "User/UpdatePassw";
-//$route['posts/(:num)'] = "Posts/Posts/$1";
+
 //$route['(:any)'] = "Urls/Go";
 
 $route['404_override'] = '';

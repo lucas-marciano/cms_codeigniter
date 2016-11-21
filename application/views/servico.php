@@ -2,7 +2,7 @@
 <!-- top bar -->
     <div class="top-bar">
         <h1>Serviços</h1>
-        <p><a href="#">Home</a> / Serviços</p>
+        <p><a href="<?= base_url() ?>">Home</a> / Serviços</p>
     </div>
     <!-- end top bar -->
 

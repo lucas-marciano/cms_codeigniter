@@ -8,11 +8,11 @@
 
 /* Table of Content
 ==================================================
-	- Google fonts & font family -
-	- General -
+        - Google fonts & font family -
+        - General -
     - typography -
     - Preloader -
-	- Header -
+        - Header -
     - box intro section -
     - Portfoilo section -
     - Footer -
@@ -899,6 +899,20 @@ footer img {
     text-align: center;
 }
 
+.session-header{
+    color: #393939;
+    padding: 50px 0px;
+    text-align: center;
+}
+
+.session-header h2{
+    font-size: 60px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #393939;
+    line-height: 50px;
+}
+
 .top-bar h1 {
     font-size: 60px;
     text-transform: uppercase;
@@ -1110,8 +1124,8 @@ textarea:focus {
 ===================================================*/
 
 .fileUpload {
-/*    position: relative; 
-    overflow: hidden; */
+    /*    position: relative; 
+        overflow: hidden; */
     margin: 30px 0px 0px 0px; 
 }
 .fileUpload input.upload { 
@@ -1124,6 +1138,30 @@ textarea:focus {
     cursor: pointer; 
     opacity: 0; 
     filter: alpha(opacity=0); 
+}
+
+/* Session parceiros
+==================================================*/
+
+.parceiros_container{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-flow: row wrap;
+    justify-content: center;
+}
+
+.parceiros_item{
+    width: 10%;
+    padding: 1px;
+    margin-top: 10px;
 }
 
 /* Responsive media queries
@@ -1143,6 +1181,10 @@ textarea:focus {
     }
     .col-md-6 h3 {
         margin-top: 30px;
+    }
+    .parceiros_item{
+        width: 20%; 
+        display: inline-block;
     }
 }
 
@@ -1170,6 +1212,11 @@ textarea:focus {
     .portfolio .categories-grid .categories ul li {
         float: none;
     }
+
+    .parceiros_item{
+        width: 30%; 
+        display: inline-block;
+    }
 }
 
 @media only screen and (max-width: 520px) {
@@ -1181,6 +1228,11 @@ textarea:focus {
     }
     .main-container {
         padding: 50px 0;
+    }
+
+    .parceiros_item{
+        width: 40%; 
+        display: inline-block;
     }
 }
 
@@ -1194,5 +1246,10 @@ textarea:focus {
     .top-bar h1 {
         font-size: 30px;
         line-height: 30px;
+    }
+
+    .parceiros_item{
+        width: 50%; 
+        display: inline-block;
     }
 }

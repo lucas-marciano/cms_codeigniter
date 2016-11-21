@@ -9,18 +9,20 @@ class Home extends CI_Controller {
     }
 
     public function index() {
-        $data = ['title' => 'Home', 
+        $data = ['title' => 'Home',
             'wordkeys' => 'palavras chaves',
             'meta_description' => 'Meta Description'];
         $this->load->view('home', $data);
+        $this->load->view('clientes');
+        $this->load->view('commons/footer');
     }
-    
+
     public function Sobre() {
-        $data = ['title' => 'Sobre', 
+        $data = ['title' => 'Sobre',
             'wordkeys' => 'palavras chaves',
             'meta_description' => 'Meta Description'];
 
-       $this->load->view('sobre', $data);
+        $this->load->view('sobre', $data);
     }
 
 }

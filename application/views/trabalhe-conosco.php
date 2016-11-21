@@ -2,7 +2,7 @@
 <!-- top bar -->
     <div class="top-bar">
         <h1>Trabalhe Conosco</h1>
-        <p><a href="#">Home</a> / Trabalhe Conosco</p>
+        <p><a href="<?= base_url() ?>">Home</a> / Trabalhe Conosco</p>
     </div>
     <!-- end top bar -->
 

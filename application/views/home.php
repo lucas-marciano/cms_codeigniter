@@ -57,7 +57,7 @@
                 <!-- end single work -->
 
                 <!-- single work -->
-                <div class="col-md-6 col-sm-12 photography">
+<!--                <div class="col-md-6 col-sm-12 photography">
                     <a href="single-project.html" class="portfolio_item">
                         <img src="http://placehold.it/1000x1000" alt="image" class="img-responsive" />
                         <div class="portfolio_item_hover">
@@ -69,7 +69,7 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </div>-->
                 <!-- end single work -->
 
                 <!-- single work -->
@@ -105,7 +105,7 @@
                 <!-- end single work -->
 
                 <!-- single work -->
-                <div class="col-md-6 col-sm-12 photography">
+<!--                <div class="col-md-6 col-sm-12 photography">
                     <a href="single-project.html" class="portfolio_item">
                         <img src="http://placehold.it/1000x1000" alt="image" class="img-responsive" />
                         <div class="portfolio_item_hover">
@@ -117,7 +117,7 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </div>-->
                 <!-- end single work -->
 
                 <!-- single work -->
@@ -189,4 +189,3 @@
         <!-- portfolio -->
     </div>
     <!-- end portfolio div -->
-    <?php $this->load->view('commons/footer') ?>

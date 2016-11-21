@@ -9,6 +9,10 @@ class Projetos extends CI_Controller{
         $data = ['title' => 'Projetos', 
             'wordkeys' => 'palavras chaves',
             'meta_description' => 'Meta Description'];
-        $this->load->view('servico', $data);
+        $this->load->view('projetos', $data);
+    }
+    
+    public function projetos() {
+        
     }
 }

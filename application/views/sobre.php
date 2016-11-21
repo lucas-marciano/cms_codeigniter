@@ -3,7 +3,7 @@
 <!-- Top bar -->
     <div class="top-bar">
         <h1>Sobre</h1>
-        <p><a href="#">Home</a> / Sobre</p>
+        <p><a href="<?= base_url() ?>">Home</a> / Sobre</p>
     </div>
     <!-- end Top bar -->
     
