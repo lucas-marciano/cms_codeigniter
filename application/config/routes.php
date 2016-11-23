@@ -49,6 +49,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+// ================== WWW ROUTES ==================
+
 $route['default_controller'] = 'Home';
 $route['sobre'] = "Home/Sobre";
 $route['servicos'] = "Servicos";
@@ -57,11 +59,22 @@ $route['projetos/(:num)'] = "Projetos/projetos/$1";
 $route['contatos'] = "Contatos/index";
 $route['trabalhe-conosco'] = "Contatos/TrabalheConosco";
 
+// ================== ADMIN ROUTES ==================
+
 $route['login'] = "Admin/Login";
-//$route['logout'] = "User/Logout";
-//$route['user'] = "User/Index";
-//$route['posts'] = "Posts/Posts";
-//$route['alterar-senha'] = "User/UpdatePassw";
+$route['painel'] = "Admin/Painel";
+$route['admin/cliente'] = "Cliente";
+$route['admin/novo-cliente'] = "Cliente/NovoCliente";
+$route['admin/projetos'] = "Projeto";
+$route['admin/empresas'] = "Empresa";
+$route['admin/galerias'] = "Galeria";
+$route['admin/parceiros'] = "Parceiro";
+$route['admin/servicos'] = "Servico";
+$route['admin/contato'] = "Contato";
+$route['admin/trabalhe-conosco'] = "Contato/TrabelheConosco";
+$route['admin/posts'] = "Posts/ListaPosts";
+$route['admin/comentarios'] = "Posts/ComentarioPosts";
+$route['admin/categorias'] = "Posts/CategoriaPosts";
 
 //$route['(:any)'] = "Urls/Go";
 

@@ -224,3 +224,20 @@ label {
     color: #fff;
     background-color: #2D3B55;
 }
+
+footer{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+}
+
+footer a{
+    color: green;
+}
+
+footer a:hover{
+    color: #fff;
+    background: green;
+    text-decoration: none;
+}
