@@ -1,6 +1,6 @@
 <?php
 
-class Posts extends CI_Controller {
+class ContatoAdm extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -12,25 +12,18 @@ class Posts extends CI_Controller {
         }
     }
 
-    public function ListaPosts(){
-        $data = ['title' => 'Posts',
+    public function index() {
+        $data = ['title' => 'Contatos da Empresa',
             'wordkeys' => 'palavras chaves',
             'meta_description' => 'Meta Description'];
-        $this->load->view('admin/posts', $data);
+        $this->load->view('admin/contatos', $data);
     }
-    
-    public function ComentarioPosts(){
-        $data = ['title' => 'Comentários',
+
+    public function TrabelheConosco() {
+        $data = ['title' => 'Trabalhe Conosco',
             'wordkeys' => 'palavras chaves',
             'meta_description' => 'Meta Description'];
-        $this->load->view('admin/comentarios', $data);
+        $this->load->view('admin/trabalhe-conosco', $data);
     }
-    
-    public function CategoriaPosts(){
-        $data = ['title' => 'Categorias',
-            'wordkeys' => 'palavras chaves',
-            'meta_description' => 'Meta Description'];
-        $this->load->view('admin/categorias', $data);
-    }
-    
+
 }

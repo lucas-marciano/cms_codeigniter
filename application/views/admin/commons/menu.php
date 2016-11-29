@@ -8,42 +8,43 @@
             <a href="<?= base_url('admin/cliente') ?>"><i class="fa fa-users"></i> Clientes</a>
         </li>
         <li <?=($this->router->fetch_class() == 'Projeto' && $this->router->fetch_method() == 'index') ? 'class="active"' : null; ?>>
-            <a href="<?= base_url('admin/adm-projetos') ?>"><i class="fa fa-terminal"></i> Projetos</a>
+            <a href="<?= base_url('admin/projetos') ?>"><i class="fa fa-terminal"></i> Projetos</a>
         </li>
         <li <?=($this->router->fetch_class() == 'Empresa' && $this->router->fetch_method() == 'index') ? 'class="active"' : null; ?>>
-            <a href="<?= base_url('admin/adm-empresa') ?>"><i class="fa fa-building"></i> Empresa</a>
+            <a href="<?= base_url('admin/empresas') ?>"><i class="fa fa-building"></i> Empresa</a>
         </li>
         <li <?=($this->router->fetch_class() == 'Galeria' && $this->router->fetch_method() == 'index') ? 'class="active"' : null; ?>>
-            <a href="<?= base_url('admin/adm-galeria') ?>"><i class="fa fa-picture-o"></i> Galeria</a>
+            <a href="<?= base_url('admin/galerias') ?>"><i class="fa fa-picture-o"></i> Galeria</a>
         </li>
         <li <?=($this->router->fetch_class() == 'Parceiro' && $this->router->fetch_method() == 'index') ? 'class="active"' : null; ?>>
-            <a href="<?= base_url('admin/adm-parceiros') ?>"><i class="fa fa-cubes"></i> Parceiros</a>
+            <a href="<?= base_url('admin/parceiros') ?>"><i class="fa fa-cubes"></i> Parceiros</a>
         </li>
         <li>
-            <a href="<?= base_url('admin/adm-servicos') ?>"><i class="fa fa-suitcase"></i> Serviços Fornecidos</a>
+            <a href="<?= base_url('admin/servicos') ?>"><i class="fa fa-suitcase"></i> Serviços Prestados</a>
         </li>
         <li <?=($this->router->fetch_class() == 'Contato') ? 'class="active"' : null; ?>>
-            <a href="javascript:;" data-toggle="collapse" data-target="#contato"><i class="fa fa-paper-plane"></i> Contatos <i class="fa fa-chevron-down"></i></a>
+            <a href="javascript:;" data-toggle="collapse" data-target="#contato"><i class="fa fa-paper-plane"></i> Contatos 
+                <i class="fa fa-chevron-down"></i></a>
             <ul id="contato" class="collapse">
                 <li>
-                    <a href="<?= base_url('admin/adm-contato') ?>">Contatos da empresa</a>
+                    <a href="<?= base_url('admin/contatos') ?>">Contatos da empresa</a>
                 </li>
                 <li>
-                    <a href="<?= base_url('admin/adm-trabalhe-conosco') ?>">Trabalhe conosco</a>
+                    <a href="<?= base_url('admin/trabalhe-conosco') ?>">Trabalhe conosco</a>
                 </li>
             </ul>
         </li>
         <li <?=($this->router->fetch_class() == 'Posts') ? 'class="active"' : null; ?>>
-            <a href="javascript:;" data-toggle="collapse" data-target="#comentarios"><i class="fa fa-bookmark"></i> Posts <i class="fa fa-chevron-down"></i></a>
-            <ul id="comentarios" class="collapse">
+            <a href="javascript:;" data-toggle="collapse" data-target="#posts"><i class="fa fa-bookmark"></i> Posts <i class="fa fa-chevron-down"></i></a>
+            <ul id="posts" class="collapse">
                 <li>
-                    <a href="<?= base_url('admin/adm-posts') ?>">Lista de Posts</a>
+                    <a href="<?= base_url('admin/posts') ?>">Lista de Posts</a>
                 </li>
                 <li>
-                    <a href="<?= base_url('admin/adm-comentarios') ?>">Comentários</a>
+                    <a href="<?= base_url('admin/comentarios') ?>">Comentários</a>
                 </li>
                 <li>
-                    <a href="<?= base_url('admin/adm-categorias') ?>">Categorias</a>
+                    <a href="<?= base_url('admin/categorias') ?>">Categorias</a>
                 </li>
             </ul>
         </li>
