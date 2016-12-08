@@ -21,7 +21,7 @@
     </div>
 
     <!-- portfolio div -->
-    <div class="portfolio-div">
+    <div id="portfolio-div" class="portfolio-div">
         <div class="portfolio">
             <div class="no-padding portfolio_container">
                 <!-- single work -->

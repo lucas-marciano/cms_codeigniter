@@ -92,7 +92,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="<?= base_url('admin/contato')?>">
+                    <a href="<?= base_url('admin/contatos')?>">
                         <div class="panel-footer">
                             <span class="pull-left">Mais informações</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

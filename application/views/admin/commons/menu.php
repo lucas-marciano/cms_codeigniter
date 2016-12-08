@@ -4,15 +4,15 @@
         <li <?=($this->router->fetch_class() == 'admin' && $this->router->fetch_method() == 'painel') ? 'class="active"' : null; ?> >
             <a href="<?= base_url('admin/painel') ?>"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
         </li>
-        <li <?=($this->router->fetch_class() == 'Cliente' && $this->router->fetch_method() == 'index') ? 'class="active"' : null; ?>>
-            <a href="<?= base_url('admin/cliente') ?>"><i class="fa fa-users"></i> Clientes</a>
-        </li>
-        <li <?=($this->router->fetch_class() == 'Projeto' && $this->router->fetch_method() == 'index') ? 'class="active"' : null; ?>>
-            <a href="<?= base_url('admin/projetos') ?>"><i class="fa fa-terminal"></i> Projetos</a>
-        </li>
-        <li <?=($this->router->fetch_class() == 'Empresa' && $this->router->fetch_method() == 'index') ? 'class="active"' : null; ?>>
+        <li <?=($this->router->fetch_class() == 'Empresa') ? 'class="active"' : null; ?>>
             <a href="<?= base_url('admin/empresas') ?>"><i class="fa fa-building"></i> Empresa</a>
         </li>
+        <li <?=($this->router->fetch_class() == 'Cliente') ? 'class="active"' : null; ?>>
+            <a href="<?= base_url('admin/cliente') ?>"><i class="fa fa-users"></i> Clientes</a>
+        </li>
+        <li <?=($this->router->fetch_class() == 'Projeto') ? 'class="active"' : null; ?>>
+            <a href="<?= base_url('admin/projetos') ?>"><i class="fa fa-terminal"></i> Projetos</a>
+        </li>       
         <li <?=($this->router->fetch_class() == 'Galeria' && $this->router->fetch_method() == 'index') ? 'class="active"' : null; ?>>
             <a href="<?= base_url('admin/galerias') ?>"><i class="fa fa-picture-o"></i> Galeria</a>
         </li>

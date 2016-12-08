@@ -24,6 +24,7 @@ body {
 #page-wrapper {
     width: 100%;
     padding: 0;
+    height: 100%;
     background-color: #fff;
 }
 
@@ -39,6 +40,7 @@ body {
 
     #page-wrapper {
         padding: 10px;
+        /*height: 866px;*/
     }
 }
 
@@ -224,4 +226,16 @@ ul.alert-dropdown {
 
 .panel-yellow > a:hover {
     color: #df8a13;
+}
+
+.shadow-box{
+    margin: 0px 40px;
+    -webkit-box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.64);
+    -moz-box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.64);
+    box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.64);
+    border: 0px;
+}
+
+.label-inactive{
+    color: #e3e3e3;
 }

@@ -99,5 +99,46 @@ class Admin extends CI_Controller {
             redirect('admin/login');
         }
     }
+    
+    public function Perfil(){
+        if ($this->session->userdata('logged')) {
+            $data = ['title' => 'Perfil',
+                'wordkeys' => 'palavras chaves',
+                'meta_description' => 'Meta Description'];
+            $this->load->view('admin/perfil', $data);
+        }else{
+            $this->session->unset_userdata('logged');
+            $this->session->unset_userdata('user_email');
+            $this->session->unset_userdata('user_id');
+            redirect('admin/login');
+        }
+    }
+    public function Configuracao(){
+        if ($this->session->userdata('logged')) {
+            $data = ['title' => 'Configurações do Sistema',
+                'wordkeys' => 'palavras chaves',
+                'meta_description' => 'Meta Description'];
+            $this->load->view('admin/configuracoes', $data);
+        }else{
+            $this->session->unset_userdata('logged');
+            $this->session->unset_userdata('user_email');
+            $this->session->unset_userdata('user_id');
+            redirect('admin/login');
+        }
+    }
+    
+    public function Mensagens(){
+        if ($this->session->userdata('logged')) {
+            $data = ['title' => 'Mensagens',
+                'wordkeys' => 'palavras chaves',
+                'meta_description' => 'Meta Description'];
+            $this->load->view('admin/mensagens', $data);
+        }else{
+            $this->session->unset_userdata('logged');
+            $this->session->unset_userdata('user_email');
+            $this->session->unset_userdata('user_id');
+            redirect('admin/login');
+        }
+    }
 
 }

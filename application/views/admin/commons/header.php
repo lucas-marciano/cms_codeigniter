@@ -24,6 +24,15 @@
         <!-- Custom Fonts -->
         <link href="<?= base_url('_assets/admin/font-awesome/css/font-awesome.min.css') ?>" rel="stylesheet" type="text/css">
 
+        <!-- File input -->
+        <link href="<?= base_url('_assets/admin/css/plugins/kartik-v/fileinput.min.css') ?>" rel="stylesheet" type="text/css">
+        
+        <!-- Hint.css -->
+        <link href="<?= base_url('_assets/admin/css/plugins/hintcss/hint.min.css') ?>" rel="stylesheet" type="text/css">
+        
+        <!-- Animate.css -->
+        <link href="<?= base_url('_assets/libs/css/animatecss/animate.min.css') ?>" rel="stylesheet" type="text/css">
+
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -66,19 +75,19 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="<?= base_url('home')?>" target="_blank">Ver Site</a>
+                        <a href="<?= base_url('home') ?>" target="_blank">Ver Site</a>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?= $this->session->userdata('user_name') ?><b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>
+                                <a href="<?= base_url('admin/perfil') ?>"><i class="fa fa-fw fa-user"></i> Perfil</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-fw fa-envelope"></i> Mensagens</a>
+                                <a href="<?= base_url('admin/mensagens') ?>"><i class="fa fa-fw fa-envelope"></i> Mensagens</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-fw fa-gear"></i> Configurações</a>
+                                <a href="<?= base_url('admin/configuracoes') ?>"><i class="fa fa-fw fa-gear"></i> Configurações</a>
                             </li>
                             <li class="divider"></li>
                             <li>
