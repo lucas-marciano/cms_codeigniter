@@ -139,7 +139,11 @@ class Projeto extends CI_Controller {
                 $form_data = $this->input->post();
                 unset($form_data['projetos-submit']);
                 $form_data['projects_capa'] = $uploadImage['fileData']['full_path'];
-
+                if ($form_data['projects_active'] == 'on') {
+                    $form_data['projects_active'] = 1;
+                } else {
+                    $form_data['projects_active'] = 0;
+                }
                 $res = $this->Projeto_model->Update($form_data, $id);
 
                 if ($res) {
@@ -191,7 +195,7 @@ class Projeto extends CI_Controller {
      */
     private function UploadFile($inputFileName) {
         $this->load->library('upload');
-        $path = "../cms_codeigniter/uploads/projetos";
+        $path = UPLOAD . "projetos";
         $config['upload_path'] = $path;
         $config['file_name'] = $inputFileName;
         $config['remove_spaces'] = TRUE; //Se TRUE , os espaços no nome do arquivo serão convertidos em underscore

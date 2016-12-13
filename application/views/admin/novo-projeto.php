@@ -9,29 +9,9 @@
                 </h1>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <?php if (isset($error) && $error != "") { ?>
-                    <div style="margin: 20px 0px;" class="alert alert-danger shadow-box row" role="alert">
-                        <div class="col-lg-11">
-                            <?= $error ?>
-                        </div>
-                        <div class="col-lg-1 text-right">
-                            <span style="color: #A94442; font-size: 26px; cursor: pointer" id="close-alert" title="Fechar"><i class="fa fa-times" aria-hidden="true"></i></span>
-                        </div>
-                    </div>
-                <?php } else if (isset($sucess) && $sucess != '') { ?>
-                    <div style="margin: 20px 0px;" class="alert alert-success shadow-box row" role="alert">
-                        <div class="col-lg-11">
-                            <?= $sucess ?>
-                        </div>
-                        <div class="col-lg-1 text-right">
-                            <span style="color: #3C763D; font-size: 26px; cursor: pointer" id="close-alert" title="Fechar"><i class="fa fa-times" aria-hidden="true"></i></span>
-                        </div>
-                    </div>
-                <?php } ?>
-            </div>
-        </div>
+
+        <?php $this->load->view('admin/commons/mensagem_new') ?>
+
         <div class="row">
             <?= form_open_multipart(base_url('admin/novo-projeto'), array("method" => "POST")); ?>
             <div class="col-lg-8">
@@ -109,14 +89,15 @@
                         <div class="form-group">
                             <div class="form-group">
                                 <div class="form-group">
-                                    <?php if ($gallery != NULL) {
+                                    <?php
+                                    if ($gallery != NULL) {
                                         foreach ($gallery as $gal) {
                                             ?>
                                             <label>
                                                 <input name="projects_gallery" value="<?= $gal->gallery_id ?>" checked="" type="radio">
                                                 <div class="well"><?= $gal->gallery_nome ?></div>
                                             </label>
-                                        <?php
+                                            <?php
                                         }
                                     } else {
                                         echo "<div class='well'>
@@ -166,7 +147,7 @@
                 <button type="submit" name="project-submit" class="btn btn-success">Cadastrar novo projeto</button>
                 <button type="reset" style="padding: 6px 34px;" class="btn btn-warning">Limpar Campo</button>
             </div>
-            <?= form_close(); ?>
+<?= form_close(); ?>
         </div>
     </div>
 </div>

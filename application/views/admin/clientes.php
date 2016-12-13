@@ -7,42 +7,23 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Clientes
+                    <?= $title ?>
                 </h1>
                 <ol class="breadcrumb">
                     <li class="active">
-                        <i class="fa fa-users"></i>  <a>Clientes</a>
+                        <i class="fa fa-users"></i>  <a><?= $title ?></a>
                     </li>
                 </ol>
             </div>
-
         </div>
+        <?php $this->load->view('admin/commons/mensagem') ?>
         <div class="row">
-            <?php if ($this->session->flashdata('sucess') !== NULL) { ?>
-                <div style="margin: 20px 0px;" class="alert alert-success shadow-box row" role="alert">
-                    <div class="col-lg-11">
-                        <?= $this->session->flashdata('sucess') ?>
-                    </div>
-                    <div class="col-lg-1 text-right">
-                        <span style="color: #3C763D; font-size: 26px; cursor: pointer" id="close-alert" title="Fechar"><i class="fa fa-times" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-                <?php $this->session->unset_tempdata('sucess'); ?>    
-            <?php } else if ($this->session->flashdata('error') !== NULL) { ?>
-                <div style="margin: 20px 0px;" class="alert alert-danger shadow-box row" role="alert">
-                    <div class="col-lg-11">
-                        <?= $this->session->flashdata('error') ?>
-                    </div>
-                    <div class="col-lg-1 text-right">
-                        <span style="color: #A94442; font-size: 26px; cursor: pointer" id="close-alert" title="Fechar"><i class="fa fa-times" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-                <?php $this->session->unset_tempdata('error'); ?> 
-            <?php } ?>
             <div class="col-lg-12">
                 <a title="Novo Cliente" class="btn btn-primary" href="<?= base_url('admin/novo-cliente') ?>">Novo cliente</a>
                 <a title="Ver clientes online" target="_blank" class="btn btn-info" href="<?= base_url('home#portfolio-div') ?>">Ver clientes online</a>
             </div>
+        </div>
+        <div class="row">
             <?php if (isset($clientes) && $clientes != NULL) { ?>
                 <div class="col-lg-12">
                     <h2>Lista de Clientes</h2>
@@ -77,7 +58,7 @@
                 </div>
             <?php } else { ?>
                 <div class="well">
-                    <p>Não há clientes cadastrados no sistema. Para cadastrar um novo cliente clique no botão <strong>Novo Cliente</strong> acima.</p>
+                    Não há clientes cadastrados no sistema. Para cadastrar um novo cliente clique no botão <strong>Novo Cliente</strong> acima.
                 </div>
             <?php } ?>
         </div>

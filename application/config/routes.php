@@ -93,8 +93,14 @@ $route['admin/editar-parceiro/(:num)'] = "Parceiro/EditeParceiro/$1";
 $route['admin/delete-parceiro/(:num)'] = "Parceiro/DeleteParceiro/$1";
 $route['admin/active-parceiro/(:num)/(:num)'] = "Parceiro/AtivarParceiro/$1/$1"; //id/estatus atual
 
-$route['admin/galerias'] = "Galeria";
+// Admin dos Servicos
 $route['admin/servicos'] = "ServicoAdm";
+$route['admin/novo-servico'] = "ServicoAdm/NovoServico";
+$route['admin/editar-servico/(:num)'] = "ServicoAdm/EditeServico/$1";
+$route['admin/delete-servico/(:num)'] = "ServicoAdm/DeleteServico/$1";
+$route['admin/active-servico/(:num)/(:num)'] = "ServicoAdm/AtivarServico/$1/$1"; //id/estatus atual
+
+$route['admin/galerias'] = "Galeria";
 
 //Contatos feitos pelo site
 $route['admin/contatos'] = "ContatoAdm/index";

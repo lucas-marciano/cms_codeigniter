@@ -15,34 +15,15 @@
                 </ol>
             </div>
         </div>
+
+        <?php $this->load->view('admin/commons/mensagem') ?>
+        
         <div class="row">
-            <?php if ($this->session->flashdata('sucess') !== NULL) { ?>
-                <div style="margin: 20px 0px;" class="alert alert-success shadow-box row" role="alert">
-                    <div class="col-lg-11">
-                        <?= $this->session->flashdata('sucess') ?>
-                    </div>
-                    <div class="col-lg-1 text-right">
-                        <span style="color: #3C763D; font-size: 26px; cursor: pointer" id="close-alert" title="Fechar"><i class="fa fa-times" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-                <?php $this->session->unset_tempdata('sucess'); ?>    
-            <?php } else if ($this->session->flashdata('error') !== NULL) { ?>
-                <div style="margin: 20px 0px;" class="alert alert-danger shadow-box row" role="alert">
-                    <div class="col-lg-11">
-                        <?= $this->session->flashdata('error') ?>
-                    </div>
-                    <div class="col-lg-1 text-right">
-                        <span style="color: #A94442; font-size: 26px; cursor: pointer" id="close-alert" title="Fechar"><i class="fa fa-times" aria-hidden="true"></i></span>
-                    </div>
-                </div>
-                <?php $this->session->unset_tempdata('error'); ?> 
-            <?php } ?>
             <div class="col-lg-12">
                 <a title="Novo Projeto" class="btn btn-primary" href="<?= base_url('admin/novo-projeto') ?>">Novo Projeto</a>
                 <a title="Ver Projetos online" target="_blank" class="btn btn-info" href="<?= base_url('home') ?>">Ver projetos online</a>
             </div>
-            <?php
-            if (isset($projetos) && $projetos != NULL) { ?>
+            <?php if (isset($projetos) && $projetos != NULL) { ?>
                 <div class="col-lg-12">
                     <h2>Lista de Projetos</h2>
                     <div class="table-responsive">

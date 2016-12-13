@@ -7,6 +7,11 @@ $(function () {
     $(".mask-cpf").mask("999.999.999-99");
     $(".mask-rg").mask("999.999.999");
 
+
+    window.setTimeout(function () {
+        $('.alert').slideUp();
+    }, 5000);
+
     $('#close-alert').click(function () {
         $('.alert').slideUp();
     });
@@ -14,7 +19,7 @@ $(function () {
     $(".input-file").fileinput({
         showUpload: false,
         layoutTemplates: {
-            main1:  "<div class=\'input-group {class}\'>\n" +
+            main1: "<div class=\'input-group {class}\'>\n" +
                     "   <div class=\'input-group-btn\'>\n" +
                     "       {browse}\n" +
                     "       {upload}\n" +

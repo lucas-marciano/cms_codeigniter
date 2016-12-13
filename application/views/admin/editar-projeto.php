@@ -7,33 +7,21 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Editar Projeto
+                    <?= $title ?>
                 </h1>
+                <ol class="breadcrumb">
+                    <li>
+                        <i class="fa fa-building"></i>  <a href="<?= base_url('admin/projetos') ?>">Projeto</a>
+                    </li>
+                    <li class="active">
+                        <i class="fa fa-building"></i>  <?= $title ?>
+                    </li>
+                </ol>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <?php if (isset($error) && $error != "") { ?>
-                    <div style="margin: 20px 0px;" class="alert alert-danger shadow-box row" role="alert">
-                        <div class="col-lg-11">
-                            <?= $error ?>
-                        </div>
-                        <div class="col-lg-1 text-right">
-                            <span style="color: #A94442; font-size: 26px; cursor: pointer" id="close-alert" title="Fechar"><i class="fa fa-times" aria-hidden="true"></i></span>
-                        </div>
-                    </div>
-                <?php } else if (isset($sucess) && $sucess != '') { ?>
-                    <div style="margin: 20px 0px;" class="alert alert-success shadow-box row" role="alert">
-                        <div class="col-lg-11">
-                            <?= $sucess ?>
-                        </div>
-                        <div class="col-lg-1 text-right">
-                            <span style="color: #3C763D; font-size: 26px; cursor: pointer" id="close-alert" title="Fechar"><i class="fa fa-times" aria-hidden="true"></i></span>
-                        </div>
-                    </div>
-                <?php } ?>
-            </div>
-        </div>
+
+        <?php $this->load->view('admin/commons/mensagem_new') ?>
+
         <div class="row">
             <?php foreach ($projetos as $projeto) { ?>
                 <?= form_open_multipart(base_url('admin/editar-projeto'), array("method" => "POST")); ?>
@@ -69,7 +57,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="form-group">
-                                <?= form_upload(array("name" => "projects_capa", "id" => "projects_capa"), set_value('projects_capa'), array("class" => "input-file")); ?>
+                                <?= form_upload(array("name" => "projects_capa", "id" => "projects_capa"), $projeto->projects_capa, array("class" => "input-file")); ?>
                             </div>
                             <div class="form-group">
                                 <select name="projects_dimension" class="form-control">

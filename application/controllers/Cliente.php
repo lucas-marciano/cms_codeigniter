@@ -183,7 +183,7 @@ class Cliente extends CI_Controller {
      */
     private function UploadFile($inputFileName) {
         $this->load->library('upload');
-        $path = "../cms_codeigniter/uploads/clientes";
+        $path = UPLOAD . "clientes";
         $config['upload_path'] = $path;
         $config['file_name'] = $inputFileName;
         $config['remove_spaces'] = 'nome_do_arquivo'; //Se TRUE , os espaços no nome do arquivo serão convertidos em underscore

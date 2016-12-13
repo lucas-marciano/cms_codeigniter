@@ -6,6 +6,7 @@ if (!defined('BASEPATH'))
 class Projeto_model extends CI_Model {
 
     const Entity = 'cms_projects';
+    const Folder = 'projetos';
 
     function __construct() {
         parent::__construct();
@@ -13,11 +14,7 @@ class Projeto_model extends CI_Model {
 
     public function Save($data) {
         $this->db->insert(self::Entity, $data);
-
-        if ($this->db->insert_id())
-            return TRUE;
-        else
-            return FALSE;
+        return $this->db->insert_id();
     }
 
     public function SaveCategoria($checks, $id) {
@@ -33,47 +30,32 @@ class Projeto_model extends CI_Model {
     public function Update($data, $id) {
         $this->db->where('projects_id', $id);
         $result = $this->db->update(self::Entity, $data);
-        if ($result)
-            return TRUE;
-        else
-            return FALSE;
+        return $result;
     }
 
     public function GetAll() {
         $this->db->select('*')->from(self::Entity);
         $result = $this->db->get()->result();
 
-        if ($result)
-            return $result;
-        else
-            return FALSE;
+        return $result;
     }
 
     public function GetProjetoId($id) {
         $this->db->select('*')->from(self::Entity)->where('projects_id', $id);
         $result = $this->db->get()->result();
-        if ($result)
-            return $result;
-        else
-            return FALSE;
+        return $result;
     }
-    
-    public function GetCategoriasProjectId($id){
+
+    public function GetCategoriasProjectId($id) {
         $this->db->select('*')->from('projeto-categoria')->where('projects_id', $id);
         $result = $this->db->get()->result();
-        if ($result)
-            return $result;
-        else
-            return FALSE;
+        return $result;
     }
 
     public function GetAllByPage($limit, $offset) {
         $this->db->select('*')->from(self::Entity)->limit($limit, $offset);
         $result = $this->db->get()->result();
-        if ($result)
-            return $result;
-        else
-            return FALSE;
+        return $result;
     }
 
     public function GetAllGallery($id = null) {
@@ -83,10 +65,7 @@ class Projeto_model extends CI_Model {
             $this->db->select('*')->from('cms_gallery')->where('gallery_id', $id);
 
         $result = $this->db->get()->result();
-        if ($result)
-            return $result;
-        else
-            return FALSE;
+        return $result;
     }
 
     public function GetAllCategories($id = null) {
@@ -96,19 +75,13 @@ class Projeto_model extends CI_Model {
             $this->db->select('*')->from('cms_category')->where('category_id', $id);
 
         $result = $this->db->get()->result();
-        if ($result)
-            return $result;
-        else
-            return FALSE;
+        return $result;
     }
 
     public function Delete($id) {
         if ($this->DeleteFile($id)) {
             $result = $this->db->delete(self::Entity, array('projects_id' => $id));
-            if ($result)
-                return TRUE;
-            else
-                return FALSE;
+            return $result;
         } else {
             return FALSE;
         }
@@ -117,13 +90,11 @@ class Projeto_model extends CI_Model {
     public function DeleteFile($id) {
         $this->db->select('projects_capa')->from(self::Entity)->where('projects_id', $id);
         $image = $this->db->get()->result();
-        if ($image[0]->projects_capa != "") {
-            if (file_exists($image[0]->projects_capa)) {
-                if (unlink($image[0]->projects_capa))
-                    return TRUE;
-                else
-                    return FALSE;
-            }else {
+
+        if ($image) {
+            if (file_exists(UPLOAD . self::Folder . DIRECTORY_SEPARATOR . $image[0]->projects_capa)) {
+                return unlink(UPLOAD . self::Folder . DIRECTORY_SEPARATOR . $image[0]->projects_capa);
+            } else {
                 return FALSE;
             }
         } else {

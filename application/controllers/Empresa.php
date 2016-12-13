@@ -118,7 +118,7 @@ class Empresa extends CI_Controller {
      */
     private function UploadFile($inputFileName) {
         $this->load->library('upload');
-        $path = "../cms_codeigniter/uploads/empresa";
+        $path = UPLOAD . "empresa";
         $config['upload_path'] = $path;
         $config['file_name'] = $inputFileName;
         $config['remove_spaces'] = TRUE; //Se TRUE , os espaços no nome do arquivo serão convertidos em underscore

@@ -17,7 +17,6 @@ class Parceiro extends CI_Controller {
     }
 
     public function index() {
-
         $config['base_url'] = base_url('admin/parceiros');
         $config['total_rows'] = $this->db->select('*')->from('cms_partners')->count_all_results();
         $config['per_page'] = 10;
@@ -45,13 +44,14 @@ class Parceiro extends CI_Controller {
 
         $this->pagination->initialize($config);
 
-        if ($this->uri->segment(3))
+        if ($this->uri->segment(3)) {
             $offset = ($this->uri->segment(2) - 1) * $config['per_page'];
-        else
+        } else {
             $offset = 0;
+        }
 
-        $clientes = $this->Parceiro_model->GetAllByPage($config['per_page'], $offset);
-        $data['parceiros'] = $clientes;
+        $parceros = $this->Parceiro_model->GetAllByPage($config['per_page'], $offset);
+        $data['parceiros'] = $parceros;
         $data['pagination'] = $this->pagination->create_links();
         $data['title'] = 'Parceiros';
         $data['wordkeys'] = 'wordkeys';
@@ -61,28 +61,128 @@ class Parceiro extends CI_Controller {
     }
 
     public function NovoParceiro() {
-        
+        $data['title'] = 'Novo Parceiro';
+        $data['wordkeys'] = 'wordkeys';
+        $data['meta_description'] = 'meta_description';
+
+        $this->form_validation->set_rules('partners_name', 'Nome', 'required|min_length[5]|max_length[1000]|trim');
+        $this->form_validation->set_rules('partners_contact', 'Email', 'required|min_length[5]|max_length[1000]|trim');
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['error'] = validation_errors();
+        } else {
+            $uploadImage = $this->UploadFile('partners_avatar');
+            if ($uploadImage['error']) {
+                $data['error'] = $uploadImage['message'];
+            } else {
+                $form_data = $this->input->post();
+                unset($form_data['action-submit']);
+                $form_data['partners_avatar'] = $uploadImage['fileData']['file_name'];
+
+                if ($form_data['partners_active'] == 'on') {
+                    $form_data['partners_active'] = 1;
+                } else {
+                    $form_data['partners_active'] = 0;
+                }
+                $res = $this->Parceiro_model->Save($form_data);
+
+                if ($res) {
+                    $this->session->set_flashdata('sucess', '<strong>Parabéns!</strong> O parceiro foi cadastrado com sucesso!');
+                    redirect(base_url('admin/parceiros'));
+                } else {
+                    $data['error'] = '<strong>Erro!</strong> Não foi possível cadastrar o parceiro!';
+                }
+            }
+        }
+
+        $this->load->view('admin/novo-parceiro', $data);
     }
-    
+
     public function EditeParceiro() {
-        
+        $data['title'] = 'Editar Parceiro';
+        $data['wordkeys'] = 'wordkeys';
+        $data['meta_description'] = 'meta_description';
+        $id = $this->uri->segment(3);
+        $data['parceiro'] = $this->Parceiro_model->GetById($id);
+
+        $this->form_validation->set_rules('partners_name', 'Nome', 'required|min_length[5]|max_length[1000]|trim');
+        $this->form_validation->set_rules('partners_contact', 'Email', 'required|min_length[5]|max_length[1000]|trim');
+
+        if ($this->form_validation->run() == FALSE) {
+            $data['error'] = validation_errors();
+        } else {
+            if ($_FILES['name'] != '') {
+                $uploadImage = $this->UploadFile('partners_avatar');
+            } else {
+                $uploadImage['error'] = FALSE;
+            }
+
+            if ($uploadImage['error']) {
+                $data['error'] = $uploadImage['message'];
+            } else {
+                $form_data = $this->input->post();
+                unset($form_data['action-submit']);
+
+                if ($form_data['partners_active'] === 'on') {
+                    $form_data['partners_active'] = 1;
+                } else {
+                    $form_data['partners_active'] = 0;
+                }
+
+                if ($uploadImage['fileData']['file_name'] != "") {
+                    $form_data['partners_avatar'] = $uploadImage['fileData']['file_name'];
+                }
+
+                $res = $this->Parceiro_model->Update($form_data, $id);
+
+                if ($res) {
+                    $this->session->set_flashdata('sucess', '<strong>Parabéns!</strong> O parceiro foi editado com sucesso!');
+                    redirect(base_url('admin/parceiros'));
+                } else {
+                    $data['error'] = '<strong>Erro!</strong> Não foi possível editar o cliente!';
+                }
+            }
+        }
+
+        $this->load->view('admin/editar-parceiro', $data);
     }
-    
+
     public function DeleteParceiro() {
-        
+        $id = $this->uri->segment(3);
+        $res = $this->Parceiro_model->Delete($id);
+        if ($res) {
+            $this->session->set_flashdata('sucess', '<string>Parabéns! </string>O parceiro foi deletado com sucesso!');
+        } else {
+            $this->session->set_flashdata('error', '<string>Desculpe! </string>Ocorreu um erro ao tentar deletar o parceiro, tente novamente.');
+        }
+        redirect(base_url('admin/parceiros'));
     }
-    
+
     public function AtivarParceiro() {
-        
+        $id = $this->uri->segment(3);
+        $active = $this->uri->segment(4);
+        if ($active == 1) {
+            $data['partners_active'] = 0;
+        } else {
+            $data['partners_active'] = 1;
+        }
+
+        $res = $this->Parceiro_model->Update($data, $id);
+        if ($res) {
+            $this->session->set_flashdata('sucess', '<string>Parabéns! </string>Alteração realizada com sucesso!');
+        } else {
+            $this->session->set_flashdata('error', '<string>Desculpe! </string>Ocorreu um erro ao tentar editar o parceiro, tente novamente.');
+        }
+        redirect(base_url('admin/parceiros'));
     }
-    
+
     /**
      * <b>UploadFile</b>: Metodo responsável pelo upload do curriculo do formulário Cadastro de novo Cliente.
      * @param $inputFileName - Nome do arquivo
      */
     private function UploadFile($inputFileName) {
         $this->load->library('upload');
-        $path = "../cms_codeigniter/uploads/clientes";
+        $path = UPLOAD . "parceiros";
         $config['upload_path'] = $path;
         $config['file_name'] = $inputFileName;
         $config['remove_spaces'] = 'nome_do_arquivo'; //Se TRUE , os espaços no nome do arquivo serão convertidos em underscore
@@ -92,8 +192,9 @@ class Parceiro extends CI_Controller {
         $config['max_size'] = '5120';
         $config['encrypt_name'] = true;
         $config['file_ext_tolower'] = true;
-        if (!is_dir($path))
+        if (!is_dir($path)) {
             mkdir($path, 0777, $recursive = true);
+        }
         $this->upload->initialize($config);
         if (!$this->upload->do_upload($inputFileName)) {
             $data['error'] = true;

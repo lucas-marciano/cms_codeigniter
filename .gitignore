@@ -112,3 +112,4 @@ application/logs/*
 /vendor/
 /capas/
 /projetos/
+/uploads/
