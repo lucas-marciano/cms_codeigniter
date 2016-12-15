@@ -5,6 +5,7 @@ class Admin extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('User_model');
+        $this->load->model('Painel_model');
         $this->load->library(array('form_validation'));
     }
 
@@ -88,57 +89,41 @@ class Admin extends CI_Controller {
 
     public function Painel() {
         if ($this->session->userdata('logged')) {
-            $data = ['title' => 'Dashboard',
-                'wordkeys' => 'palavras chaves',
-                'meta_description' => 'Meta Description'];
+            $data['title'] = 'Dashboard';
+            $data['wordkeys'] = 'Dashboard';
+            $data['meta_description'] = 'Dashboard';
+            $data['clientes'] = $this->Painel_model->GetCountRows('cms_clients', 'clients_active');
+            $data['parceiros'] = $this->Painel_model->GetCountRows('cms_partners', 'partners_active');
+            $data['projetos'] = $this->Painel_model->GetCountRows('cms_projects', 'projects_active');
+            $data['contatos'] = $this->Painel_model->GetContacts();
             $this->load->view('admin/painel', $data);
         } else {
             $this->session->unset_userdata('logged');
             $this->session->unset_userdata('user_email');
             $this->session->unset_userdata('user_id');
-            redirect('admin/login');
+            redirect(base_url('login'), 'location', 301);
         }
     }
-    
-    public function Perfil(){
-        if ($this->session->userdata('logged')) {
-            $data = ['title' => 'Perfil',
-                'wordkeys' => 'palavras chaves',
-                'meta_description' => 'Meta Description'];
-            $this->load->view('admin/perfil', $data);
-        }else{
-            $this->session->unset_userdata('logged');
-            $this->session->unset_userdata('user_email');
-            $this->session->unset_userdata('user_id');
-            redirect('admin/login');
-        }
+
+    public function Perfil() {
+        $data = ['title' => 'Perfil',
+            'wordkeys' => 'palavras chaves',
+            'meta_description' => 'Meta Description'];
+        $this->load->view('admin/perfil', $data);
     }
-    public function Configuracao(){
-        if ($this->session->userdata('logged')) {
-            $data = ['title' => 'Configurações do Sistema',
-                'wordkeys' => 'palavras chaves',
-                'meta_description' => 'Meta Description'];
-            $this->load->view('admin/configuracoes', $data);
-        }else{
-            $this->session->unset_userdata('logged');
-            $this->session->unset_userdata('user_email');
-            $this->session->unset_userdata('user_id');
-            redirect('admin/login');
-        }
+
+    public function Configuracao() {
+        $data = ['title' => 'Configurações do Sistema',
+            'wordkeys' => 'palavras chaves',
+            'meta_description' => 'Meta Description'];
+        $this->load->view('admin/configuracoes', $data);
     }
-    
-    public function Mensagens(){
-        if ($this->session->userdata('logged')) {
-            $data = ['title' => 'Mensagens',
-                'wordkeys' => 'palavras chaves',
-                'meta_description' => 'Meta Description'];
-            $this->load->view('admin/mensagens', $data);
-        }else{
-            $this->session->unset_userdata('logged');
-            $this->session->unset_userdata('user_email');
-            $this->session->unset_userdata('user_id');
-            redirect('admin/login');
-        }
+
+    public function Mensagens() {
+        $data = ['title' => 'Mensagens',
+            'wordkeys' => 'palavras chaves',
+            'meta_description' => 'Meta Description'];
+        $this->load->view('admin/mensagens', $data);
     }
 
 }

@@ -239,3 +239,21 @@ ul.alert-dropdown {
 .label-inactive{
     color: #e3e3e3;
 }
+
+.flex-container{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-flow: row wrap;
+}
+
+.flex-item {
+    margin: 5px;
+}

@@ -19,5 +19,15 @@
             </div>
         </div>
         <?php $this->session->unset_tempdata('error'); ?> 
+    <?php } else if ($this->session->flashdata('warning') !== NULL) { ?>
+        <div style="margin: 20px 0px;" class="alert alert-warning shadow-box row" role="alert">
+            <div class="col-lg-11">
+                <?= $this->session->flashdata('warning') ?>
+            </div>
+            <div class="col-lg-1 text-right">
+                <span style="color: #A46D3B; font-size: 26px; cursor: pointer" id="close-alert" title="Fechar"><i class="fa fa-times" aria-hidden="true"></i></span>
+            </div>
+        </div>
+        <?php $this->session->unset_tempdata('warning'); ?> 
     <?php } ?>
 </div>

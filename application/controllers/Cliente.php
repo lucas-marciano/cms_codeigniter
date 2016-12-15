@@ -81,7 +81,7 @@ class Cliente extends CI_Controller {
                 $data['error'] = $uploadImage['message'];
             } else {
                 $form_data = $this->input->post();
-                unset($form_data['cliente-submit']);
+                unset($form_data['action-submit']);
                 $form_data['clients_capa'] = $uploadImage['fileData']['file_name'];
                 if ($form_data['clients_active'] == 'on') {
                     $form_data['clients_active'] = 1;

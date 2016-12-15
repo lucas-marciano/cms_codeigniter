@@ -7,14 +7,14 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Editar Cliente
+                    <?= $title ?>
                 </h1>
                 <ol class="breadcrumb">
                     <li>
                         <i class="fa fa-users"></i>  <a href="<?= base_url('admin/cliente') ?>">Clientes</a>
                     </li>
                     <li class="active">
-                        <i class="fa fa-users"></i> Editar Cliente
+                        <i class="fa fa-users"></i> <?= $title ?>
                     </li>
                 </ol>
             </div>

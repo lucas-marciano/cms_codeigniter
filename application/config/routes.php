@@ -100,15 +100,27 @@ $route['admin/editar-servico/(:num)'] = "ServicoAdm/EditeServico/$1";
 $route['admin/delete-servico/(:num)'] = "ServicoAdm/DeleteServico/$1";
 $route['admin/active-servico/(:num)/(:num)'] = "ServicoAdm/AtivarServico/$1/$1"; //id/estatus atual
 
-$route['admin/galerias'] = "Galeria";
-
 //Contatos feitos pelo site
 $route['admin/contatos'] = "ContatoAdm/index";
 $route['admin/trabalhe-conosco'] = "ContatoAdm/TrabelheConosco";
+$route['admin/edite-contato/(:num)/(:num)'] = "ContatoAdm/EditeContato/$1/$1";
+$route['admin/delete-contato/(:num)'] = "ContatoAdm/DeleteContato/$1";
+$route['admin/delete-trabalhe-conosco/(:num)'] = "ContatoAdm/DeleteTrabalheConosco/$1";
+
+//Admin da galeria
+$route['admin/galerias'] = "Galeria";
+$route['admin/nova-galeria'] = "Galeria/NovaGaleria";
+$route['admin/deletar-galeria/(:num)'] = "Galeria/DeletarGallery/$1";
+$route['admin/delatar-image-galeria/(:num)/(:any)'] = "Galeria/DeletarPorImagem/$1/$2";
+
 //Posts
 $route['admin/posts'] = "Posts/ListaPosts";
 $route['admin/comentarios'] = "Posts/ComentarioPosts";
-$route['admin/categorias'] = "Posts/CategoriaPosts";
+
+//Admin da Cateogiras
+$route['admin/categorias'] = "Categorias/index";
+$route['admin/delete-categoria/(:num)'] = "Categorias/DeleteCategoria/$1";
+$route['admin/novo-categoria'] = "Categorias/NovoCategoria";
 
 //$route['(:any)'] = "Urls/Go";
 

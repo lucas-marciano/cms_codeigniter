@@ -65,13 +65,24 @@ class ServicoAdm_model extends CI_Model {
         return $result;
     }
 
-    
+    /**
+     * <b>GetAllByPage</b>: Metodo de auxilio a paginação, retornando os itens
+     * que devem aparecer por pagina.
+     * @param type $limit
+     * @param type $offset
+     * @return type
+     */
     public function GetAllByPage($limit, $offset) {
         $this->db->select('*')->from(self::Entity)->limit($limit, $offset);
         $result = $this->db->get()->result();
         return $result;
     }
 
+    /**
+     * <b>Delete</b>
+     * @param type $id
+     * @return boolean
+     */
     public function Delete($id) {
         if ($this->DeleteFile($id)) {
             $result = $this->db->delete(self::Entity, array(self::IdColum => $id));
@@ -81,6 +92,11 @@ class ServicoAdm_model extends CI_Model {
         }
     }
 
+    /**
+     * <b>DeleteFile</b>
+     * @param type $id
+     * @return boolean
+     */
     public function DeleteFile($id) {
         $this->db->select(self::ImgColum)->from(self::Entity)->where(self::IdColum, $id);
         $image = $this->db->get()->result();

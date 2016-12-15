@@ -5,18 +5,18 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Empresa
+                    <?= $title ?>
                 </h1>
                 <ol class="breadcrumb">
                     <li class="active">
-                        <i class="fa fa-building"></i>  Empresa
+                        <i class="fa fa-building"></i>  <?= $title ?>
                     </li>
                 </ol>
             </div>
         </div>
 
         <?php $this->load->view('admin/commons/mensagem') ?>
-        
+
         <div class="row">
             <div class="col-lg-12" style="margin-bottom: 20px">
                 <a title="Editar informações" class="btn btn-primary" href="<?= base_url('admin/editar-empresa/') . $empresa[0]->company_id ?>">Editar informações</a>

@@ -94,11 +94,10 @@ class Projeto extends CI_Controller {
 
                 unset($form_data['categoria_project']);
                 $res = $this->Projeto_model->Save($form_data);
-
                 if ($res) {
                     $this->session->set_flashdata('sucess', '<strong>Parabéns!</strong> O Projeto foi cadastrado com sucesso!');
                     if (isset($checks)) {
-                        if (!$this->Projeto_model->SaveCategoria($checks, $res['projects_id'])) {
+                        if (!$this->Projeto_model->SaveCategoria($checks, $res)) {
                             $this->session->unset_tempdata('sucess');
                             $this->session->set_flashdata('error', '<strong>Erro grave nas categorias!</strong> Entre em contato com o suporte!');
                         }
@@ -138,7 +137,7 @@ class Projeto extends CI_Controller {
             } else {
                 $form_data = $this->input->post();
                 unset($form_data['projetos-submit']);
-                $form_data['projects_capa'] = $uploadImage['fileData']['full_path'];
+                $form_data['projects_capa'] = $uploadImage['fileData']['file_name'];
                 if ($form_data['projects_active'] == 'on') {
                     $form_data['projects_active'] = 1;
                 } else {
@@ -163,8 +162,7 @@ class Projeto extends CI_Controller {
      */
     public function DeleteProjeto() {
         $id = $this->uri->segment(3);
-        $res = $this->Projeto_model->Delete($id);
-        if ($res) {
+        if ($this->Projeto_model->Delete($id)) {
             $this->session->set_flashdata('sucess', '<string>Parabéns! </string>O projeto foi deletado com sucesso!');
         } else {
             $this->session->set_flashdata('error', '<string>Desculpe! </string>Ocorreu um erro ao tentar deletar o projeto, tente novamente.');

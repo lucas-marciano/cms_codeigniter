@@ -68,19 +68,15 @@ class Projeto_model extends CI_Model {
         return $result;
     }
 
-    public function GetAllCategories($id = null) {
-        if (isset($id))
-            $this->db->select('*')->from('cms_category');
-        else
-            $this->db->select('*')->from('cms_category')->where('category_id', $id);
-
-        $result = $this->db->get()->result();
-        return $result;
+    public function GetAllCategories() {
+        $this->db->select('*')->from('cms_category');
+        return $this->db->get()->result();
     }
 
     public function Delete($id) {
         if ($this->DeleteFile($id)) {
             $result = $this->db->delete(self::Entity, array('projects_id' => $id));
+            $this->db->delete('projeto-categoria', array('projects_id' => $id));
             return $result;
         } else {
             return FALSE;
@@ -90,7 +86,6 @@ class Projeto_model extends CI_Model {
     public function DeleteFile($id) {
         $this->db->select('projects_capa')->from(self::Entity)->where('projects_id', $id);
         $image = $this->db->get()->result();
-
         if ($image) {
             if (file_exists(UPLOAD . self::Folder . DIRECTORY_SEPARATOR . $image[0]->projects_capa)) {
                 return unlink(UPLOAD . self::Folder . DIRECTORY_SEPARATOR . $image[0]->projects_capa);
