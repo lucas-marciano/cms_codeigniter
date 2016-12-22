@@ -87,7 +87,7 @@
                                 <i class="fa fa-paper-plane fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge"><?= $contatos ?></div>
+                                <div class="huge"><?= count($contatos) ?></div>
                                 <div>Contatos aguardando</div>
                             </div>
                         </div>
@@ -124,10 +124,14 @@
                         <h3 class="panel-title"><i class="fa fa-paper-plane fa-fw"></i> Contatos recentes</h3>
                     </div>
                     <div class="panel-body">
-                        <a href="#" class="list-group-item">
-                            <span class="badge">just now</span>
-                            <i class="fa fa-fw fa-calendar"></i> Calendar updated
-                        </a>
+                        <?php foreach ($contatos as $contato) { ?>
+                            <a class="list-group-item">
+                                <span class="label label-success" style="margin-right: 20px">
+                                    <?= date('d/m/Y', strtotime($contato->contato_data)) ?>
+                                </span>
+                                <i class="fa fa-paper-plane-o"></i> <?= $contato->contato_nome ?> | <?= $contato->contato_email ?>
+                            </a>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

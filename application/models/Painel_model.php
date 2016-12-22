@@ -17,7 +17,7 @@ class Painel_model extends CI_Model {
 
     public function GetContacts() {
         $this->db->select('*')->from('cms_contato')->where('contato_lido', 0);
-        return $this->db->get()->num_rows();
+        return $this->db->get()->result();
     }
 
 }

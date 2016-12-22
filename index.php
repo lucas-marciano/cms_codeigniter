@@ -267,6 +267,8 @@ if (!isset($view_folder[0]) && is_dir(APPPATH . 'views' . DIRECTORY_SEPARATOR)) 
 
 define('VIEWPATH', $view_folder . DIRECTORY_SEPARATOR);
 
+
+
 /*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE
@@ -274,4 +276,5 @@ define('VIEWPATH', $view_folder . DIRECTORY_SEPARATOR);
  *
  * And away we go...
  */
+
 require_once BASEPATH . 'core/CodeIgniter.php';

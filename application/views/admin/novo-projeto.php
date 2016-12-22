@@ -62,9 +62,8 @@
                         <div class="form-group">
                             <select name="projects_dimension" class="form-control">
                                 <option selected disabled>Tamanho da box de apresentação</option>
-                                <option <?= set_value('projects_dimension') == 200 ? 'selected' : '' ?> value="200">Grande [200x200]</option>
-                                <option <?= set_value('projects_dimension') == 100 ? 'selected' : '' ?> value="100">Média  [100x100]</option>
-                                <option <?= set_value('projects_dimension') == 50 ? 'selected' : '' ?> value="50">Grande [50x50]</option>
+                                <option <?= set_value('projects_dimension') == 'col-md-6' ? 'selected' : '' ?> value="col-md-6">Grande</option>
+                                <option <?= set_value('projects_dimension') == 'col-md-4' ? 'selected' : '' ?> value="col-md-4">Média</option>
                             </select>
                         </div>
                     </div>

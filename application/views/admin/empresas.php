@@ -40,9 +40,9 @@
                         <h3 class="panel-title">Dados de contato</h3>
                     </div>
                     <div class="panel-body">
-                        <label>Telefone </label><?= $empresa[0]->company_phone ?><br>
-                        <label>Email </label><?= $empresa[0]->company_email ?><br>
-                        <label>Fax </label><?= $empresa[0]->company_fax ?><br>
+                        <label>Telefone </label> <?= $empresa[0]->company_phone ?><br>
+                        <label>Email </label> <?= $empresa[0]->company_email ?><br>
+                        <label>Fax </label> <?= $empresa[0]->company_fax ?><br>
                     </div>
                 </div>
             </div>
@@ -53,11 +53,11 @@
                         <h3 class="panel-title">Endereço</h3>
                     </div>
                     <div class="panel-body">
-                        <label>Endereço </label><?= $empresa[0]->company_address ?><br>
-                        <label>Cidade </label><?= $empresa[0]->company_city ?><br>
-                        <label>Estado </label><?= $empresa[0]->company_state ?><br>
-                        <label>Pais </label><?= $empresa[0]->company_country ?><br>
-                        <label>CEP </label><?= $empresa[0]->company_postal_code ?><br>
+                        <label>Endereço </label> <?= $empresa[0]->company_address ?><br>
+                        <label>Cidade </label> <?= $empresa[0]->company_city ?><br>
+                        <label>Estado </label> <?= $empresa[0]->company_state ?><br>
+                        <label>Pais </label> <?= $empresa[0]->company_country ?><br>
+                        <label>CEP </label> <?= $empresa[0]->company_postal_code ?><br>
                     </div>
                 </div>
             </div>

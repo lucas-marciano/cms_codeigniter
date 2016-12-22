@@ -8,7 +8,7 @@
         <meta name="keywords" content="<?= $wordkeys ?>">
         <meta name="author" content="Lucas Marciano">
 
-        <title><?= $title ?> | CMS</title>
+        <title><?= $title ?></title>
         <link rel="icon" href="<?= base_url('_assets/www/img/favicon.png') ?>" type="image/x-icon">
 
         <link href="<?= base_url('_assets/www/css/bootstrap.min.css') ?>" rel="stylesheet">

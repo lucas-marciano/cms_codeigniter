@@ -6,21 +6,25 @@ class Home extends CI_Controller {
 
     function __construct() {
         parent::__construct();
+        $this->load->model('Site_model');
     }
 
     public function index() {
-        $data = ['title' => 'Home',
-            'wordkeys' => 'palavras chaves',
-            'meta_description' => 'Meta Description'];
+        $data['clientes'] = $this->Site_model->GetClientes();
+        $data['empresa'] = $this->Site_model->GetDadosEmpresa();
+        $data['parceiros'] = $this->Site_model->GetParceiros();
+        $data['title'] = $data['empresa']->company_name . ' | Home';
+        $data['wordkeys'] = '';
+        $data['meta_description'] = '';
+        
         $this->load->view('home', $data);
-        $this->load->view('clientes');
-        $this->load->view('commons/footer');
     }
 
     public function Sobre() {
-        $data = ['title' => 'Sobre',
-            'wordkeys' => 'palavras chaves',
-            'meta_description' => 'Meta Description'];
+        $data['empresa'] = $this->Site_model->GetDadosEmpresa();
+        $data['title'] = $data['empresa']->company_name . ' | Sobre';
+        $data['wordkeys'] = '';
+        $data['meta_description'] = '';
 
         $this->load->view('sobre', $data);
     }
